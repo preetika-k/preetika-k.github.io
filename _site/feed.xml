@@ -320,7 +320,7 @@ It’s sometimes handy for breaking things up.</p>
 
 <span class="p">});</span></code></pre></figure>]]></content><author><name>johndoe</name></author><category term="blog" /><category term="markdown" /><category term="elements" /><summary type="html"><![CDATA[Markdown summary with different options]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/markdown.jpg" /><media:content medium="image" url="http://localhost:4000/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">:ramen: Indigo, minimalist jekyll theme</title><link href="http://localhost:4000/indigo-jekyll-theme/" rel="alternate" type="text/html" title=":ramen: Indigo, minimalist jekyll theme" /><published>2016-01-23T22:10:00-08:00</published><updated>2016-01-23T22:10:00-08:00</updated><id>http://localhost:4000/indigo-jekyll-theme</id><content type="html" xml:base="http://localhost:4000/indigo-jekyll-theme/"><![CDATA[<p><img src="https://raw.githubusercontent.com/sergiokopplin/indigo/gh-pages/assets/screen-shot.png" alt="Screenshot" /></p>
 
-<p>Example of project - Indigo Minimalist Jekyll Template - <a href="https://sergiokopplin.github.io/indigo/">Demo</a>. This is a simple and minimalist template for Jekyll for those who likes to eat noodles.</p>
+<p>Example of project - Indigo Minimalist Jekyll Template - <a href="https://preetika-k.github.io/indigo/">Demo</a>. This is a simple and minimalist template for Jekyll for those who likes to eat noodles.</p>
 
 <hr />
 
@@ -337,5 +337,5 @@ It’s sometimes handy for breaking things up.</p>
 
 <hr />
 
-<p><a href="https://sergiokopplin.github.io/indigo/">Check it out</a> here.
-If you need some help, just <a href="https://github.com/sergiokopplin/indigo/issues">tell me</a>.</p>]]></content><author><name>johndoe</name></author><category term="project" /><category term="jekyll" /><summary type="html"><![CDATA[This is a simple and minimalist template for Jekyll for those who likes to eat noodles.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png" /><media:content medium="image" url="https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p><a href="https://preetika-k.github.io/indigo/">Check it out</a> here.
+If you need some help, just <a href="https://github.com/sergiokopplin/indigo/issues">tell me</a>.</p>]]></content><author><name>johndoe</name></author><category term="project" /><category term="jekyll" /><summary type="html"><![CDATA[This is a simple and minimalist template for Jekyll for those who likes to eat noodles.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://preetika-k.github.io/indigo/assets/images/jekyll-logo-light-solid.png" /><media:content medium="image" url="https://preetika-k.github.io/indigo/assets/images/jekyll-logo-light-solid.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
