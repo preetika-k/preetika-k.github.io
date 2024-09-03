@@ -26,7 +26,7 @@ What has inside?
 - Stylus
 - SVG
 - No JS
-- [98/100](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsergiokopplin.github.io%2Findigo%2F)
+- [98/100](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fpreetika-k.github.io%2Findigo%2F)
 
 ---
 
