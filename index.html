@@ -3,634 +3,967 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preetika Kaur - Portfolio</title>
+    <meta name="description" content="Preetika Kaur - Founder, builder, and cognitive science thinker.">
+    <title>Preetika Kaur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --black: #1A1A2E;
+            --white: #F7F7FB;
+            --off-white: #EDEDF4;
+            --gray: #7E7E8F;
+            --lime: #6B8F7B;
+            --coral: #5C6BC0;
+            --lavender: #7986CB;
+            --sky: #5C8A97;
+            --peach: #9FA8DA;
         }
-        
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Playfair Display', serif;
-            line-height: 1.7;
-            color: #3d2817;
-            background: #f5f0e8;
-            padding: 40px 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+            cursor: default;
         }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
+
+        ::selection { background: var(--coral); color: white; }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* ─── CUSTOM CURSOR DOT ─── */
+        .cursor-dot {
+            width: 10px; height: 10px;
+            background: var(--coral);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: multiply;
+            transition: transform 0.15s ease;
         }
-        
-        .header-card { 
-            background: linear-gradient(135deg, #4a2c5e 0%, #2d1b3d 100%);
-            border-radius: 20px;
-            padding: 60px 50px;
-            margin-bottom: 30px;
-            color: #f5f0e8;
-            box-shadow: 0 10px 40px rgba(61, 40, 23, 0.25);
-            animation: fadeIn 0.6s ease-out;
-        }
-        
-        .header-card h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-        
-        .header-card .subtitle {
-            font-size: 1.3em;
-            opacity: 0.95;
-            margin-bottom: 30px;
-            max-width: 700px;
-        }
-        
-        .contact-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .contact-card {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            padding: 16px 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-card:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-        
-        .contact-card a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-        }
-        
-        .contact-label {
-            font-size: 0.75em;
-            opacity: 0.8;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .card {
-            background: #faf8f4;
-            border-radius: 16px;
-            padding: 35px;
-            box-shadow: 0 4px 20px rgba(61, 40, 23, 0.1);
-            transition: all 0.3s ease;
-            animation: slideUp 0.6s ease-out;
-        }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(61, 40, 23, 0.18);
-        }
-        
-        .card-header {
-            margin-bottom: 20px;
-        }
-        
-        .card-title {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #3d2817;
-            margin-bottom: 8px;
-        }
-        
-        .card-subtitle {
-            font-size: 0.9em;
-            color: #8b6f47;
-            font-weight: 500;
-        }
-        
-        .card-content {
-            color: #5c4a38;
-            font-size: 1em;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-        
-       .about-card {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, #2d5016 0%, #1a3d0f 100%);
-            color: #f5f0e8;
-        }
-        
-        .about-card .card-title {
-            color: #f5f0e8;
-        }
-        
-        .about-card .card-content {
-            color: rgba(245, 240, 232, 0.95);
-            font-size: 1.1em;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 25px;
-        }
-        
-        .skill-card {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .skill-card h3 {
-            font-size: 0.9em;
-            margin-bottom: 10px;
-            opacity: 0.9;
-            font-weight: 600;
-        }
-        
-        .skill-card p {
-            font-size: 0.85em;
-            opacity: 0.85;
-            line-height: 1.6;
-        }
-        
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-        }
-        
-        .project-year {
-            background: #ebe5da;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-            color: #6b4423;
-        }
-        
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 15px 0;
-        }
-        
-        .tech-tag {
-            background: linear-gradient(135deg, #6b4423 0%, #3d2817 100%);
-            color: #f5f0e8;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.75em;
-            font-weight: 600;
-        }
-        
-        .highlights {
-            list-style: none;
-            margin: 20px 0;
-        }
-        
-        .highlights li {
-            padding-left: 24px;
-            margin-bottom: 12px;
-            position: relative;
-            color: #5c4a38;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-        
-        .highlights li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #8b6f47;
-            font-weight: bold;
-        }
-        
-        .card-actions {
-            margin-top: auto;
-            padding-top: 20px;
-            display: flex;
-            gap: 12px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #6b4423 0%, #3d2817 100%);
-            color: #f5f0e8;
-            flex: 1;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(61, 40, 23, 0.3);
-        }
-        
-        .btn-secondary {
-            background: #ebe5da;
-            color: #3d2817;
-            flex: 1;
-        }
-        
-        .btn-secondary:hover {
-            background: #dfd7ca;
-        }
-        
-        .experience-card {
-            border-left: 4px solid #8b6f47;
-        }
-        
-        .experience-meta {
+
+        .cursor-dot.hovering { transform: scale(4); }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
         }
-        
-        .company {
-            color: #6b4423;
-            font-weight: 600;
-            font-size: 0.95em;
-        }
-        
-        .date-range {
-            background: #ebe5da;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            color: #6b4423;
-            font-weight: 600;
-        }
-        
-        .section-header {
-            background: #faf8f4;
-            border-radius: 16px;
-            padding: 30px 40px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 20px rgba(61, 40, 23, 0.1);
-        }
-        
-        .section-header h2 {
-            font-size: 2em;
+
+        .nav-name {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.82em;
             font-weight: 700;
-            color: #3d2817;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-right a {
+            font-size: 0.8em;
+            font-weight: 500;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-right a:hover { opacity: 1; }
+
+        .nav-right .resume-btn {
+            opacity: 1;
+            padding: 8px 18px;
+            border: 1px solid rgba(28,25,23,0.15);
+            border-radius: 24px;
+            transition: all 0.2s;
+        }
+
+        .nav-right .resume-btn:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--black);
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .hero-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72em;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--coral);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(3.2em, 9vw, 8em);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 .italic {
+            font-style: italic;
+            color: var(--coral);
+        }
+
+        .hero h1 .outline {
+            -webkit-text-stroke: 1.5px var(--black);
+            color: transparent;
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 48px;
+        }
+
+        .hero-desc {
+            max-width: 380px;
+            font-size: 0.92em;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+
+        .hero-contact {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-contact a {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72em;
+            padding: 10px 20px;
+            border: 1px solid rgba(28,25,23,0.1);
+            border-radius: 24px;
+            transition: all 0.25s;
+            letter-spacing: 0.03em;
+        }
+
+        .hero-contact a:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 32px;
+            left: 40px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65em;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray);
+            writing-mode: vertical-rl;
+            animation: bob 2s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ─── MARQUEE ─── */
+        .marquee-wrap {
+            overflow: hidden;
+            border-top: 1px solid rgba(28,25,23,0.06);
+            border-bottom: 1px solid rgba(28,25,23,0.06);
+            padding: 18px 0;
+        }
+
+        .marquee {
+            display: flex;
+            gap: 48px;
+            animation: scroll-left 25s linear infinite;
+            width: max-content;
+        }
+
+        .marquee span {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+            color: var(--gray);
+        }
+
+        .marquee .dot {
+            color: var(--coral);
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ─── SECTION STRUCTURE ─── */
+        .section {
+            padding: 120px 40px;
+            position: relative;
+        }
+
+        .section-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65em;
+            color: var(--coral);
+            letter-spacing: 0.1em;
             margin-bottom: 8px;
         }
-        
-        .section-header p {
-            color: #8b6f47;
+
+        .section-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2em, 5vw, 3.5em);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 48px;
+        }
+
+        /* ─── ABOUT ─── */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-text {
             font-size: 1.05em;
+            line-height: 1.8;
+            color: rgba(28,25,23,0.55);
         }
-        
-        .footer-card {
-            background: #3d2817;
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 40px;
-            text-align: center;
-            color: #f5f0e8;
+
+        .about-text p + p { margin-top: 20px; }
+
+        .about-right {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
         }
-        
-        .footer-card h3 {
+
+        .edu-block {
+            padding: 28px;
+            border: 1px solid rgba(248,246,243,0.1);
+            border-radius: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .edu-block:hover { border-color: var(--lavender); }
+
+        .edu-block h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.2em;
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+
+        .edu-block .school {
+            font-size: 0.82em;
+            color: var(--lavender);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .edu-block p {
+            font-size: 0.82em;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .skills-block h3 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray);
+            margin-bottom: 12px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            font-size: 0.78em;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 24px;
+            border: 1px solid rgba(28,25,23,0.1);
+            color: rgba(28,25,23,0.55);
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--coral);
+            color: var(--coral);
+        }
+
+        /* ─── PROJECTS ─── */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .project-row {
+            display: grid;
+            grid-template-columns: 0.4fr 1fr;
+            gap: 48px;
+            padding: 48px 0;
+            border-bottom: 1px solid rgba(248,246,243,0.07);
+            align-items: start;
+            transition: background 0.3s;
+        }
+
+        .project-row:last-child { border-bottom: none; }
+
+        .project-row:hover {
+            background: rgba(28,25,23,0.03);
+            margin: 0 -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 12px;
+        }
+
+        .proj-meta {
+            position: sticky;
+            top: 100px;
+        }
+
+        .proj-meta h3 {
+            font-family: 'Instrument Serif', serif;
             font-size: 1.5em;
+            font-weight: 400;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .proj-meta .type {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68em;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--sky);
+            margin-bottom: 16px;
+        }
+
+        .proj-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .proj-tech span {
+            font-size: 0.7em;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: rgba(28,25,23,0.06);
+            color: rgba(28,25,23,0.4);
+        }
+
+        .proj-body p {
+            font-size: 0.95em;
+            line-height: 1.75;
+            color: rgba(28,25,23,0.5);
+            margin-bottom: 16px;
+        }
+
+        .proj-body ul {
+            list-style: none;
             margin-bottom: 20px;
         }
-        
+
+        .proj-body li {
+            font-size: 0.88em;
+            color: rgba(28,25,23,0.4);
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+            line-height: 1.6;
+        }
+
+        .proj-body li::before {
+            content: '\2192';
+            position: absolute;
+            left: 0;
+            color: var(--coral);
+        }
+
+        .proj-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 10px 20px;
+            border: 1px solid rgba(28,25,23,0.1);
+            border-radius: 24px;
+            transition: all 0.25s;
+        }
+
+        .proj-link:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        .proj-link svg { width: 12px; height: 12px; }
+
+        /* ─── EXPERIENCE ─── */
+        .exp-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exp-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 48px;
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(248,246,243,0.07);
+            align-items: start;
+            transition: all 0.3s;
+        }
+
+        .exp-row:last-child { border-bottom: none; }
+
+        .exp-row:hover {
+            background: rgba(28,25,23,0.03);
+            margin: 0 -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 12px;
+        }
+
+        .exp-row.current .exp-time::before {
+            content: '';
+            display: block;
+            width: 8px; height: 8px;
+            background: var(--coral);
+            border-radius: 50%;
+            margin-bottom: 8px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
+        .exp-time {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72em;
+            color: var(--gray);
+            letter-spacing: 0.02em;
+            line-height: 1.6;
+            padding-top: 6px;
+        }
+
+        .exp-content h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.3em;
+            font-weight: 400;
+            margin-bottom: 2px;
+        }
+
+        .exp-content .org {
+            font-size: 0.85em;
+            font-weight: 500;
+            color: var(--peach);
+            margin-bottom: 12px;
+        }
+
+        .exp-content ul { list-style: none; }
+
+        .exp-content li {
+            font-size: 0.88em;
+            color: rgba(28,25,23,0.45);
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+            line-height: 1.65;
+        }
+
+        .exp-content li::before {
+            content: '\2192';
+            position: absolute;
+            left: 0;
+            color: rgba(28,25,23,0.1);
+        }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            padding: 80px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(28,25,23,0.06);
+        }
+
+        .footer h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2em, 5vw, 3.5em);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .footer h2 .italic { font-style: italic; color: var(--coral); }
+
+        .footer p {
+            color: var(--gray);
+            font-size: 0.92em;
+            margin-bottom: 32px;
+        }
+
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 25px;
+            gap: 12px;
             flex-wrap: wrap;
+            margin-bottom: 48px;
         }
-        
+
         .footer-links a {
-            color: rgba(245, 240, 232, 0.8);
-            text-decoration: none;
-            font-size: 0.95em;
-            transition: color 0.3s ease;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75em;
+            padding: 12px 24px;
+            border: 1px solid rgba(28,25,23,0.1);
+            border-radius: 24px;
+            transition: all 0.25s;
+            letter-spacing: 0.03em;
         }
-        
+
         .footer-links a:hover {
-            color: #f5f0e8;
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
         }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .footer-links a.primary {
+            background: var(--coral);
+            color: white;
+            border-color: var(--coral);
+            font-weight: 700;
         }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .footer-links a.primary:hover {
+            background: #B0714D;
         }
-        
+
+        .footer-copy {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65em;
+            color: rgba(28,25,23,0.2);
+            letter-spacing: 0.05em;
+        }
+
+        /* ─── REVEAL ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
-            .header-card {
-                padding: 40px 30px;
-            }
-            
-            .header-card h1 {
-                font-size: 2.5em;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-card {
-                grid-column: 1;
-            }
-            
-            .card {
-                padding: 25px;
-            }
-            
-            .card-actions {
+            nav { padding: 16px 24px; }
+            .nav-right { display: none; }
+            .nav-right.open {
+                display: flex;
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(250,250,248,0.97);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                z-index: 99;
             }
+            .nav-right.open a { font-size: 1.2em; opacity: 0.8; color: var(--black); }
+            .menu-toggle { display: block; z-index: 101; }
+
+            .hero { padding: 0 24px; }
+            .hero-bottom { flex-direction: column; gap: 24px; align-items: flex-start; }
+            .hero-contact { flex-wrap: wrap; }
+            .scroll-hint { display: none; }
+
+            .section { padding: 80px 24px; }
+
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .project-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .proj-meta { position: static; }
+
+            .exp-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .footer { padding: 60px 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.6em; }
+            .section-title { font-size: 1.8em; }
+        }
+
+        /* hide cursor dot on touch */
+        @media (pointer: coarse) {
+            .cursor-dot { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header-card">
-            <h1>Preetika Kaur</h1>
-            
-            <div class="contact-cards">
-                <div class="contact-card">
-                    <div class="contact-label">Email</div>
-                    <a href="mailto:pkaur1@berkeley.edu">pkaur1@berkeley.edu</a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-label">LinkedIn</div>
-                    <a href="https://www.linkedin.com/in/preetika-kaur-169699260/" target="_blank">Connect</a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-label">GitHub</div>
-                    <a href="https://github.com/preetika-k" target="_blank">View code</a>
-                </div>
-            </div>
+
+    <div class="cursor-dot" id="cursor"></div>
+
+    <nav>
+        <span class="nav-name">Preetika Kaur</span>
+        <div class="nav-right" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="KaurPreetikaResumex.pdf" target="_blank" class="resume-btn">Resume</a>
         </div>
+        <button class="menu-toggle" id="menuToggle">Menu</button>
+    </nav>
 
-        <div class="grid">
-            <div class="card about-card">
-                <div class="card-header">
-                    <h2 class="card-title">About Me</h2>
-                </div>
-                <div class="card-content">
-                    <p style="margin-bottom: 16px;"> I'm a recent Cognitive Science grad from UC Berkeley who loves building AI-powered tools that actually solve problems. I combine technical skills with product thinking to create solutions people want to use. </p>
-                    <p> I've worked on everything from machine learning models to Chrome extensions to leading small teams on projects. Right now, I'm really into Web3, prediction markets, and emerging tech—basically anything that makes complex systems more accessible and transparent.</p>
-                </div>
-                
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h3>Technical</h3>
-                        <p>C++, Python,SQL, CSS, Java, HTML, Golang, Pandas, Git, Excel,</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Domains</h3>
-                        <p>AI & Machine Learning, Fintech & Prediction Markets, Human-AI Interaction, Data Analysis & Automation</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-header">
-            <h2>Featured Projects</h2>
-            <p>Building products that combine AI, data, and user-centered design</p>
-        </div>
-
-        <div class="grid">
-
-            <div class="card project-card">
-                <div class="project-header">
-                    <h3 class="card-title">Maps Multi-Tab Navigator</h3>
-                    <span class="project-year">2025</span>
-                </div>
-                
-                <div class="tech-stack">
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Chrome API</span>
-                    <span class="tech-tag">CSS</span>
-                </div>
-                
-                <div class="card-content">
-                    Chrome extension for managing multiple Google Maps routes simultaneously. Reduced route planning time by 60%.
-                </div>
-                
-                <ul class="highlights">
-                    <li>User research with 20+ Google Maps users</li>
-                    <li>Persistent route saving with Chrome Storage API</li>
-                    <li>Seamless UI integration without breaking functionality</li>
-                </ul>
-                
-                <div class="card-actions">
-                    <a href="https://github.com/preetika-k/maps-tabs-extension" class="btn btn-primary" target="_blank">GitHub</a>
-                </div>
-            </div>
-
-            <div class="card project-card">
-                <div class="project-header">
-                    <h3 class="card-title">Stable Diffusion Optimizer</h3>
-                    <span class="project-year">2023</span>
-                </div>
-                
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">AI</span>
-                    <span class="tech-tag">Gradio</span>
-                </div>
-                
-                <div class="card-content">
-                    AI prompt engineering tool built in 72 hours at Cal Hacks 10.0. Competed among 2,000+ participants.
-                </div>
-                
-                <ul class="highlights">
-                    <li>Rapid prototyping under tight deadlines</li>
-                    <li>Custom templates for improved output quality</li>
-                    <li>Intuitive interface with real-time previews</li>
-                </ul>
-                
-                <div class="card-actions">
-                    <a href="https://github.com/preetika-k/Fine-Tuning-prompts-for-Stable-Diffusion" class="btn btn-primary" target="_blank">GitHub</a>
-
-                </div>
-            </div>
-
-            <div class="card project-card">
-                <div class="project-header">
-                    <h3 class="card-title">Financial Data Pipeline</h3>
-                    <span class="project-year">2024</span>
-                </div>
-                
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">APIs</span>
-                    <span class="tech-tag">Pandas</span>
-                </div>
-                
-                <div class="card-content">
-                    Automated stock market data analysis pipeline. Reduced manual reporting time by 70%.
-                </div>
-                
-                <ul class="highlights">
-                    <li>Automated OHLC data retrieval and cleaning</li>
-                    <li>Calculated moving averages and volatility metrics</li>
-                    <li>Production-ready error handling and validation</li>
-                </ul>
-                
-                <div class="card-actions">
-                    <a href="https://github.com/preetika-k/gen_alphavan" class="btn btn-primary" target="_blank">GitHub</a>
-                </div>
-            </div>
-            <div class="card project-card">
-                <div class="project-header">
-                    <h3 class="card-title">visAI</h3>
-                    <span class="project-year">2024</span>
-                </div>
-                
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">ML</span>
-                    <span class="tech-tag">Pandas</span>
-                </div>
-                
-                <div class="card-content">
-                    ML-powered visa application error detection system. Led 4-person team achieving 85% accuracy and 40% reduction in processing time.
-                </div>
-                
-                <ul class="highlights">
-                    <li>Analyzed 5,000+ applications for pattern identification</li>
-                    <li>Implemented bias detection for ethical AI</li>
-                    <li>Presented product strategy to stakeholders</li>
-                </ul>
-                
-            </div>
-        </div>
-
-        <div class="section-header">
-            <h2>Experience</h2>
-            <p>Building products and conducting research at the intersection of AI and cognition</p>
-        </div>
-    
-
-        <div class="grid">
-            <div class="card experience-card">
-                <div class="card-header">
-                <h3 class="card-title">AI Model Trainer</h3>
-                <div class="experience-meta">
-                    <span class="company">Mercor AI</span>
-                    <span class="date-range">Aug 2025 – Dec 2025</span>
-                </div>
-            </div>
-            <div class="card-content">
-                Trained multimodal AI models on visual-auditory perception by generating 100+ labeled audio-visual pairs, enabling models to learn cross-modal representations between vision and language. Worked closely with AI research teams to improve data quality protocols, developing keen understanding of how AI systems learn and interpret human communication.
-            </div>
-        </div>
-            <div class="card experience-card">
-                <div class="card-header">
-                <h3 class="card-title">Research Assistant</h3>
-                <div class="experience-meta">
-                    <span class="company">UC Berkeley Computational Cognitive Science Lab</span>
-                    <span class="date-range">Aug 2022 – Jan 2024</span>
-                </div>
-            </div>
-            <div class="card-content">
-                Developed ChatGPT API modifications and conducted data analysis on human-AI interaction patterns. Collaborated with interdisciplinary team to translate cognitive science insights into technical requirements and product improvements.
-            </div>
-        </div>
-            <div class="card experience-card">
-                <div class="card-header">
-                <h3 class="card-title"> Program Manager Robotics Instructor</h3>
-                <div class="experience-meta">
-                    <span class="company">Magikid</span>
-                    <span class="date-range">Jan 2025 – June 2025</span>
-                </div>
-            </div>
-            <div class="card-content">
-                Taught students to design, build, and program VEX Robotics systems while introducing foundational engineering and coding concepts in Python and Scratch. Created hands-on lesson plans that made STEM engaging and accessible, helping young learners develop problem-solving skills through real-world robotics challenges. Managed robotics program for 200+ students across 4 locations while instructing 3 courses weekly; established operating
-rhythm and communications that improved completion rates from 78% to 94%.
-            </div>
-        </div>
-            <div class="card experience-card">
-                <div class="card-header">
-                    <h3 class="card-title">Accounting Assistant</h3>
-                    <div class="experience-meta">
-                        <span class="company">Payless Accounting</span>
-                        <span class="date-range">Mar 2020 – Jun 2022</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    Automated financial reporting workflows using macros and PivotTables, improving operational efficiency by 30%. Developed analytical dashboards for management decision-making.
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-card">
-            <h3>Let's Build Something Amazing</h3>
-            <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 10px;">
-                Available for product management and technical roles in AI, blockchain, and fintech.
-            </p>
-            <div class="footer-links">
-                <a href="pkaur1@berkeley.edu">Email</a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-tag">Founder &bull; Builder &bull; UC Berkeley '25</div>
+        <h1>
+            Preetika<br>
+            <span class="outline">Kaur</span> <span class="italic">&mdash;</span>
+        </h1>
+        <div class="hero-bottom">
+            <p class="hero-desc">UC Berkeley cognitive science grad interested in operations, GTM, and product. Currently building a beverage startup from scratch.</p>
+            <div class="hero-contact">
+                <a href="mailto:pkaur1@berkeley.edu">Email</a>
+                <a href="https://www.linkedin.com/in/preetika-kaur-169699260/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/preetika-k" target="_blank">GitHub</a>
-                <a href="KaurPreetikaResumex.pdf" target="_blank">Resume</a>
             </div>
+        </div>
+        <span class="scroll-hint">Scroll</span>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+        <div class="marquee">
+            <span>Python</span><span class="dot">&bull;</span>
+            <span>React</span><span class="dot">&bull;</span>
+            <span>C++</span><span class="dot">&bull;</span>
+            <span>PyTorch</span><span class="dot">&bull;</span>
+            <span>TensorFlow</span><span class="dot">&bull;</span>
+            <span>SQL</span><span class="dot">&bull;</span>
+            <span>Node.js</span><span class="dot">&bull;</span>
+            <span>Java</span><span class="dot">&bull;</span>
+            <span>Git</span><span class="dot">&bull;</span>
+            <span>Linux</span><span class="dot">&bull;</span>
+            <span>Pandas</span><span class="dot">&bull;</span>
+            <span>R</span><span class="dot">&bull;</span>
+            <span>Excel</span><span class="dot">&bull;</span>
+            <span>GTM & Operations</span><span class="dot">&bull;</span>
+            <!-- duplicate for seamless loop -->
+            <span>Python</span><span class="dot">&bull;</span>
+            <span>React</span><span class="dot">&bull;</span>
+            <span>C++</span><span class="dot">&bull;</span>
+            <span>PyTorch</span><span class="dot">&bull;</span>
+            <span>TensorFlow</span><span class="dot">&bull;</span>
+            <span>SQL</span><span class="dot">&bull;</span>
+            <span>Node.js</span><span class="dot">&bull;</span>
+            <span>Java</span><span class="dot">&bull;</span>
+            <span>Git</span><span class="dot">&bull;</span>
+            <span>Linux</span><span class="dot">&bull;</span>
+            <span>Pandas</span><span class="dot">&bull;</span>
+            <span>R</span><span class="dot">&bull;</span>
+            <span>Excel</span><span class="dot">&bull;</span>
+            <span>GTM & Operations</span><span class="dot">&bull;</span>
         </div>
     </div>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="section-num reveal">01</div>
+        <h2 class="section-title reveal">About</h2>
+        <div class="about-layout">
+            <div class="about-text reveal">
+                <p>I'm a Cognitive Science grad from UC Berkeley currently building a functional sparkling beverage brand from scratch -- overseeing everything from product formulation to USPTO trademark filings to e-commerce.</p>
+                <p>Simultaneously, I manage cross-program teams at the American Indian Foundation. Before that I trained multimodal AI models, taught 200+ kids robotics, and researched human-AI interaction at Berkeley's Computational Cognitive Science Lab.</p>
+            </div>
+            <div class="about-right">
+                <div class="edu-block reveal">
+                    <h3>B.A. Cognitive Science</h3>
+                    <div class="school">UC Berkeley &middot; 2025</div>
+                    <p>Computational Methods of Cognition, AI & Business, Blockchain, Data Structures, Statistics</p>
+                </div>
+                <div class="skills-block reveal">
+                    <h3>Domains</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AI & ML</span>
+                        <span class="skill-tag">Fintech</span>
+                        <span class="skill-tag">Prediction Markets</span>
+                        <span class="skill-tag">Human-AI Interaction</span>
+                        <span class="skill-tag">GTM & Ops</span>
+                        <span class="skill-tag">Data Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+        <div class="section-num reveal">02</div>
+        <h2 class="section-title reveal">Experience</h2>
+        <div class="exp-list">
+
+            <div class="exp-row current reveal">
+                <div class="exp-time">Feb 2026 &ndash;<br>Present</div>
+                <div class="exp-content">
+                    <h3>Founder & CEO</h3>
+                    <div class="org">Functional Beverage Startup (Pre-Launch)</div>
+                    <ul>
+                        <li>Building a first-of-its-kind functional sparkling beverage brand from the ground up: product concept, brand identity, packaging, e-commerce</li>
+                        <li>Registered LLC, obtained EIN, filed USPTO trademark; evaluated co-packers and formulators on pricing, MOQs, and production feasibility</li>
+                        <li>Authored investor-ready pitch deck and DTC go-to-market strategy with planned crowdfunding launch</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-row current reveal">
+                <div class="exp-time">Jan 2026 &ndash;<br>Present</div>
+                <div class="exp-content">
+                    <h3>Program Manager</h3>
+                    <div class="org">American Indian Foundation</div>
+                    <ul>
+                        <li>Coordinating teams across multiple programs with tracking systems and check-ins to keep milestones on schedule</li>
+                        <li>Maintaining documentation and stakeholder communications on progress and blockers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-row reveal">
+                <div class="exp-time">Aug &ndash; Dec<br>2025</div>
+                <div class="exp-content">
+                    <h3>AI Model Trainer</h3>
+                    <div class="org">Mercor AI</div>
+                    <ul>
+                        <li>Trained multimodal AI models on visual-auditory perception -- 100+ labeled audio-visual pairs for cross-modal representation learning</li>
+                        <li>Improved data quality protocols with research teams</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-row reveal">
+                <div class="exp-time">Jan &ndash; May<br>2025</div>
+                <div class="exp-content">
+                    <h3>Program Manager & Instructor</h3>
+                    <div class="org">Magikid Robotics Lab</div>
+                    <ul>
+                        <li>Managed robotics program for 200+ students across 4 locations, 3 courses weekly</li>
+                        <li>Led Arduino course launch -- exceeded enrollment by 120%, cut instructor prep 3 hrs/week</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-row reveal">
+                <div class="exp-time">Aug 2022 &ndash;<br>Jan 2024</div>
+                <div class="exp-content">
+                    <h3>Research Assistant</h3>
+                    <div class="org">UC Berkeley Computational Cognitive Science Lab</div>
+                    <ul>
+                        <li>Built Python scripts modifying ChatGPT API for open-source enhancements</li>
+                        <li>Data analysis on human-AI interaction patterns and decision-making</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-row reveal">
+                <div class="exp-time">Mar 2020 &ndash;<br>Jun 2022</div>
+                <div class="exp-content">
+                    <h3>Accounting Assistant</h3>
+                    <div class="org">Payless Accounting, Fremont</div>
+                    <ul>
+                        <li>Automated reporting with macros & PivotTables -- 30% efficiency gain</li>
+                        <li>Managed QuickBooks for 20+ client accounts with automated workflows</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+        <div class="section-num reveal">03</div>
+        <h2 class="section-title reveal">Projects</h2>
+        <div class="projects-list">
+
+            <div class="project-row reveal">
+                <div class="proj-meta">
+                    <h3>Bitcoin Polymarket Signal Dashboard</h3>
+                    <div class="type">Web App &middot; 2026</div>
+                    <div class="proj-tech">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>WebSocket</span>
+                        <span>Claude API</span>
+                    </div>
+                </div>
+                <div class="proj-body">
+                    <p>Real-time dashboard predicting Bitcoin price direction for Polymarket's 15-minute prediction markets. Live WebSocket feeds + TradingView charts + Claude-powered signal generation.</p>
+                    <ul>
+                        <li>Live BTC price streaming via WebSocket</li>
+                        <li>TradingView integration for technical analysis</li>
+                        <li>AI signal generation through Anthropic API</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-row reveal">
+                <div class="proj-meta">
+                    <h3>Maps Multi-Tab Navigator</h3>
+                    <div class="type">Chrome Extension &middot; 2025</div>
+                    <div class="proj-tech">
+                        <span>JavaScript</span>
+                        <span>Chrome API</span>
+                        <span>CSS3</span>
+                    </div>
+                </div>
+                <div class="proj-body">
+                    <p>Chrome extension adding tab-based navigation to Google Maps -- manage multiple routes simultaneously without losing active navigation state.</p>
+                    <ul>
+                        <li>Research with 20+ Google Maps users</li>
+                        <li>Persistent route saving via Chrome Storage</li>
+                        <li>Non-destructive UI overlay</li>
+                    </ul>
+                    <a href="https://github.com/preetika-k/maps-tabs-extension" class="proj-link" target="_blank">
+                        GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-row reveal">
+                <div class="proj-meta">
+                    <h3>Stable Diffusion Optimizer</h3>
+                    <div class="type">Cal Hacks 10.0 &middot; 2023</div>
+                    <div class="proj-tech">
+                        <span>Python</span>
+                        <span>Stable Diffusion</span>
+                        <span>TogetherAI</span>
+                    </div>
+                </div>
+                <div class="proj-body">
+                    <p>AIGC prompt optimization tool built in 72 hours at Cal Hacks (2,000+ participants). Helps non-technical users generate effective text-to-image content via Stable Diffusion API.</p>
+                    <a href="https://github.com/preetika-k/Fine-Tuning-prompts-for-Stable-Diffusion" class="proj-link" target="_blank">
+                        GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <h2 class="reveal">Say <span class="italic">hello.</span></h2>
+        <p class="reveal">Open to product, technical, and startup roles.</p>
+        <div class="footer-links reveal">
+            <a href="mailto:pkaur1@berkeley.edu" class="primary">Get in Touch</a>
+            <a href="https://www.linkedin.com/in/preetika-kaur-169699260/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/preetika-k" target="_blank">GitHub</a>
+            <a href="KaurPreetikaResumex.pdf" target="_blank">Resume</a>
+        </div>
+        <div class="footer-copy">Preetika Kaur &middot; 2026</div>
+    </div>
+
+    <script>
+        // Custom cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX - 5 + 'px';
+            cursor.style.top = e.clientY - 5 + 'px';
+        });
+        document.querySelectorAll('a, button, .skill-tag, .proj-link, .resume-btn').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+
+        // Mobile menu
+        const toggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            toggle.textContent = navLinks.classList.contains('open') ? 'Close' : 'Menu';
+        });
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            toggle.textContent = 'Menu';
+        }));
+
+        // Scroll reveal
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
 </body>
 </html>
